@@ -1,7 +1,13 @@
-﻿namespace DemoGraphQL.Application.Mediator
-{
-    public class Module
-    {
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Reflection;
 
+namespace DemoGraphQL.Application.Mediator
+{
+    public static class Module
+    {
+        public static IServiceCollection ConfigureMediatr(this IServiceCollection services)
+        {
+            return services.AddMediatR(Assembly.GetExecutingAssembly());
+        }
     }
 }

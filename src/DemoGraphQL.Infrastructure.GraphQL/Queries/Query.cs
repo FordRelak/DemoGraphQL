@@ -6,16 +6,9 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Queries
 {
     public class Query
     {
-        private readonly IMediator _mediator;
-
-        public Query(IMediator mediator)
+        public async Task<IList<BookDTO>> GetBooks([Service] IMediator mediator, CancellationToken cancellationToken)
         {
-            _mediator = mediator;
-        }
-
-        public async Task<IList<BookDTO>> GetBooks(CancellationToken cancellationToken)
-        {
-            return await _mediator.Send(new GetBooksQuery(), cancellationToken);
+            return await mediator.Send(new GetBooksQuery(), cancellationToken);
         }
     }
 }

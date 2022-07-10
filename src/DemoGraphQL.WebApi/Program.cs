@@ -1,4 +1,5 @@
 using DemoGraphQL.Application.Mapper;
+using DemoGraphQL.Application.Mediator;
 using DemoGraphQL.Application.Repositories;
 using DemoGraphQL.Infrastructure.GraphQL;
 using DemoGraphQL.Infrastructure.Persistence.EF;
@@ -33,6 +34,7 @@ namespace DemoGraphQL.WebApi
         public static void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureNpgsql(_configuration.GetConnectionString("DemoGraphQL"));
+            services.ConfigureMediatr();
             services.ConfigureRepositories();
             services.ConfigureMapper();
             services.ConfigureSeeder();
