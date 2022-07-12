@@ -1,6 +1,6 @@
 ﻿namespace DemoGraphQL.Domain
 {
-    public class Publisher: IId<Guid>
+    public class Publisher : IId<Guid>
     {
         public Guid Id { get; set; }
 

@@ -56,7 +56,7 @@ namespace DemoGraphQL.WebApi
             var seeder = app.Services.GetRequiredService<Seeder>();
             await seeder.SeedIfNeed();
         }
-        
+
         private static async Task ApplyMigrationIfNeed(WebApplication app)
         {
             var migrator = app.Services.GetRequiredService<MigrationService>();

@@ -1,5 +1,4 @@
-﻿using Ardalis.Specification.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace DemoGraphQL.Application.Repositories
 {

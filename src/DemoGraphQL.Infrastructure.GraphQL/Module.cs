@@ -9,7 +9,8 @@ namespace DemoGraphQL.Infrastructure.GraphQL
         {
             services
                 .AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddQueryType<Query>()
+                .AddFiltering();
 
             return services;
         }
