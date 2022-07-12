@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace DemoGraphQL.Application.Mediator.Queries.Publishers
 {
-    public class GetPublishersQuery : IRequest<IList<PublisherDTO>>
-    {
-
-    }
+    public record GetPublishersQuery : IRequest<IList<Publisher>>;
 }

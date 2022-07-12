@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DemoGraphQL.Application.Mapper\DemoGraphQL.Application.Mapper.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Application.Repositories\DemoGraphQL.Application.Repositories.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Domain\DemoGraphQL.Domain.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Infrastructure.GraphQL\DemoGraphQL.Infrastructure.GraphQL.csproj" />

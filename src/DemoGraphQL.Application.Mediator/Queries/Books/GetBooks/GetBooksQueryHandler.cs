@@ -1,20 +1,17 @@
 ﻿namespace DemoGraphQL.Application.Mediator.Queries.Books
 {
-    public class GetBooksQueryHandler : BaseQueryHandler<GetBooksQuery, IList<BookDTO>>
+    public class GetBooksQueryHandler : BaseQueryHandler<GetBooksQuery, IList<Book>>
     {
         private readonly IRepository<Book> _bookRepository;
 
-        public GetBooksQueryHandler(
-            IMapper mapper,
-            IRepository<Book> bookRepository) : base(mapper)
+        public GetBooksQueryHandler(IRepository<Book> bookRepository)
         {
             _bookRepository = bookRepository;
         }
 
-        public override async Task<IList<BookDTO>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
+        public override async Task<IList<Book>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
         {
-            var books = await _bookRepository.ListAsync(cancellationToken);
-            return _mapper.Map<IList<BookDTO>>(books);
+            return await _bookRepository.ListAsync(cancellationToken);
         }
     }
 }

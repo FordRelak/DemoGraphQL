@@ -1,20 +1,17 @@
 ﻿namespace DemoGraphQL.Application.Mediator.Queries.Authors
 {
-    public class GetAuthorsQueryHandler : BaseQueryHandler<GetAuthorsQuery, IList<AuthorDTO>>
+    public class GetAuthorsQueryHandler : BaseQueryHandler<GetAuthorsQuery, IList<Author>>
     {
         private readonly IRepository<Author> _authorRepository;
 
-        public GetAuthorsQueryHandler(
-            IMapper mapper,
-            IRepository<Author> authorRepository) : base(mapper)
+        public GetAuthorsQueryHandler(IRepository<Author> authorRepository)
         {
             _authorRepository = authorRepository;
         }
 
-        public override async Task<IList<AuthorDTO>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
+        public override async Task<IList<Author>> Handle(GetAuthorsQuery request, CancellationToken cancellationToken)
         {
-            var authors = await _authorRepository.ListAsync(cancellationToken);
-            return _mapper.Map<IList<AuthorDTO>>(authors);
+            return await _authorRepository.ListAsync(cancellationToken);
         }
     }
 }

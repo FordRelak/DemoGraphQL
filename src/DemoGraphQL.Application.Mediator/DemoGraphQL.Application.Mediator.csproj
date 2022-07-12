@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DemoGraphQL.Application.DTO\DemoGraphQL.Application.DTO.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Application.Repositories\DemoGraphQL.Application.Repositories.csproj" />
+    <ProjectReference Include="..\DemoGraphQL.Domain\DemoGraphQL.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,6 @@
-using DemoGraphQL.Application.Mapper;
 using DemoGraphQL.Application.Mediator;
 using DemoGraphQL.Application.Repositories;
 using DemoGraphQL.Infrastructure.GraphQL;
-using DemoGraphQL.Infrastructure.Persistence.EF;
 using DemoGraphQL.Infrastructure.Persistence.EF.Migrations;
 using DemoGraphQL.Infrastructure.Persistence.EF.Seedings;
 using DemoGraphQL.Infrastructure.Persistence.PostgreSQL;
@@ -36,7 +34,6 @@ namespace DemoGraphQL.WebApi
             services.ConfigureNpgsql(_configuration.GetConnectionString("DemoGraphQL"));
             services.ConfigureMediatr();
             services.ConfigureRepositories();
-            services.ConfigureMapper();
             services.ConfigureSeeder();
             services.ConfigureMigration();
             services.ConfigureHotChocolateGraphQL();
