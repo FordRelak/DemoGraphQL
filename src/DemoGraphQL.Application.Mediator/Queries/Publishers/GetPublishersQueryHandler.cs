@@ -4,9 +4,7 @@
     {
         private readonly IRepository<Publisher> _publisherRepository;
 
-        public GetPublishersQueryHandler(
-            IMapper mapper,
-            IRepository<Publisher> publisherRepository)
+        public GetPublishersQueryHandler(IRepository<Publisher> publisherRepository)
         {
             _publisherRepository = publisherRepository;
         }

@@ -7,18 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="11.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Handlers\Authors\" />
-    <Folder Include="Handlers\Books\" />
     <Folder Include="Handlers\Publishers\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DemoGraphQL.Application.Repositories\DemoGraphQL.Application.Repositories.csproj" />
+    <ProjectReference Include="..\DemoGraphQL.Application.Specifications\DemoGraphQL.Application.Specifications.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Domain\DemoGraphQL.Domain.csproj" />
   </ItemGroup>
 

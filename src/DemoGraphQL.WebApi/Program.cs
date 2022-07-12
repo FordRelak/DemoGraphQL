@@ -1,6 +1,7 @@
 using DemoGraphQL.Application.Mediator;
 using DemoGraphQL.Application.Repositories;
 using DemoGraphQL.Infrastructure.GraphQL;
+using DemoGraphQL.Infrastructure.GraphQL.Mapper;
 using DemoGraphQL.Infrastructure.Persistence.EF.Migrations;
 using DemoGraphQL.Infrastructure.Persistence.EF.Seedings;
 using DemoGraphQL.Infrastructure.Persistence.PostgreSQL;
@@ -37,6 +38,7 @@ namespace DemoGraphQL.WebApi
             services.ConfigureSeeder();
             services.ConfigureMigration();
             services.ConfigureHotChocolateGraphQL();
+            services.ConfigureMapperGraphQL();
         }
 
         public static void Configure(IApplicationBuilder app)
@@ -44,6 +46,8 @@ namespace DemoGraphQL.WebApi
             app.UseDeveloperExceptionPage();
 
             app.UseRouting();
+
+            app.UseWebSockets();
 
             app.UseEndpoints(endpoints =>
             {

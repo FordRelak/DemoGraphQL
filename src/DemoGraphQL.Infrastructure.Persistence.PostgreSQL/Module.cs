@@ -15,9 +15,6 @@ namespace DemoGraphQL.Infrastructure.Persistence.PostgreSQL
                     options.MigrationsAssembly("DemoGraphQL.Infrastructure.Persistence.EF.Migrations");
                 })
                 .LogTo(Console.WriteLine);
-
-                options.EnableDetailedErrors();
-                options.EnableSensitiveDataLogging();
             }, poolSize: 32);
 
             services.AddTransient<DbContext>(s => s.GetRequiredService<IDbContextFactory<GQDbContext>>()

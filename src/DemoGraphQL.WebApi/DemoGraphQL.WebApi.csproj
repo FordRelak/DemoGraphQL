@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DemoGraphQL.Application.Repositories\DemoGraphQL.Application.Repositories.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Domain\DemoGraphQL.Domain.csproj" />
+    <ProjectReference Include="..\DemoGraphQL.Infrastructure.GraphQL.Mapper\DemoGraphQL.Infrastructure.GraphQL.Mapper.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Infrastructure.GraphQL\DemoGraphQL.Infrastructure.GraphQL.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Infrastructure.Persistence.EF.Migrations\DemoGraphQL.Infrastructure.Persistence.EF.Migrations.csproj" />
     <ProjectReference Include="..\DemoGraphQL.Infrastructure.Persistence.EF.Seedings\DemoGraphQL.Infrastructure.Persistence.EF.Seedings.csproj" />

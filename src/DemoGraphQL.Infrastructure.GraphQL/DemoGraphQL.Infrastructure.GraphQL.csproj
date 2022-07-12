@@ -1,20 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="Filters\" />
-    <Folder Include="Mutations\" />
     <Folder Include="Subscriptions\" />
-    <Folder Include="Types\" />
   </ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="11.0.1" />
 		<PackageReference Include="HotChocolate.Data" Version="12.12.0" />
+		<PackageReference Include="HotChocolate.Data.EntityFramework" Version="12.12.0" />
 		<PackageReference Include="MediatR" Version="10.0.1" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
 		<PackageReference Include="HotChocolate.AspNetCore" Version="12.12.0" />
@@ -23,5 +22,6 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\DemoGraphQL.Application.Mediator\DemoGraphQL.Application.Mediator.csproj" />
 	  <ProjectReference Include="..\DemoGraphQL.Application.Specifications\DemoGraphQL.Application.Specifications.csproj" />
+	  <ProjectReference Include="..\DemoGraphQL.Infrastructure.Persistence.EF\DemoGraphQL.Infrastructure.Persistence.EF.csproj" />
 	</ItemGroup>
 </Project>

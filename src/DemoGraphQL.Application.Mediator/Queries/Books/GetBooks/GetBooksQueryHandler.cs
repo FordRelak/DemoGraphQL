@@ -1,4 +1,6 @@
-﻿namespace DemoGraphQL.Application.Mediator.Queries.Books
+﻿using DemoGraphQL.Application.Specifications.Books;
+
+namespace DemoGraphQL.Application.Mediator.Queries.Books
 {
     public class GetBooksQueryHandler : BaseQueryHandler<GetBooksQuery, IList<Book>>
     {
@@ -11,7 +13,7 @@
 
         public override async Task<IList<Book>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
         {
-            return await _bookRepository.ListAsync(cancellationToken);
+            return await _bookRepository.ListAsync(new GetBooks(), cancellationToken);
         }
     }
 }

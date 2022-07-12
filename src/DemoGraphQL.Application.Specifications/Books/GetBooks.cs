@@ -7,6 +7,9 @@ namespace DemoGraphQL.Application.Specifications.Books
     {
         public GetBooks()
         {
+            Query
+                .Include(b => b.Author)
+                .Include(b => b.Publisher);
         }
     }
 }

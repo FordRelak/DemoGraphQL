@@ -1,4 +1,6 @@
-﻿using DemoGraphQL.Infrastructure.GraphQL.Queries;
+﻿using DemoGraphQL.Infrastructure.GraphQL.Mutations;
+using DemoGraphQL.Infrastructure.GraphQL.Queries;
+using DemoGraphQL.Infrastructure.GraphQL.Types.Books;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DemoGraphQL.Infrastructure.GraphQL
@@ -9,8 +11,19 @@ namespace DemoGraphQL.Infrastructure.GraphQL
         {
             services
                 .AddGraphQLServer()
+
                 .AddQueryType<Query>()
-                .AddFiltering();
+                .AddMutationType<Mutation>()
+
+                .AddTypeExtension<SimpleQuery>()
+                .AddTypeExtension<DbContextQuery>()
+
+                .AddTypeExtension<AddBookMutation>()
+                .AddTypeExtension<UpdateBookMutation>()
+                
+                .AddInMemorySubscriptions()
+                .AddFiltering()
+                .AddProjections();
 
             return services;
         }
