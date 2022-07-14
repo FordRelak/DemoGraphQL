@@ -32,19 +32,19 @@ namespace DemoGraphQL.Infrastructure.Persistence.EF.Seedings
                 return;
             }
 
-            var p1 = CreatePublisher();
-            var p2 = CreatePublisher();
+            Publisher p1 = CreatePublisher();
+            Publisher p2 = CreatePublisher();
 
-            var a1 = CreateAuthor();
-            var a2 = CreateAuthor();
-            var a3 = CreateAuthor();
+            Author a1 = CreateAuthor();
+            Author a2 = CreateAuthor();
+            Author a3 = CreateAuthor();
 
-            var b1 = CreateBook();
-            var b2 = CreateBook();
-            var b3 = CreateBook();
-            var b4 = CreateBook();
-            var b5 = CreateBook();
-            var b6 = CreateBook();
+            Book b1 = CreateBook();
+            Book b2 = CreateBook();
+            Book b3 = CreateBook();
+            Book b4 = CreateBook();
+            Book b5 = CreateBook();
+            Book b6 = CreateBook();
 
             AddBookToPublisher(p1, b1, b2, b3);
             AddBookToPublisher(p2, b4, b5, b6);
@@ -62,7 +62,7 @@ namespace DemoGraphQL.Infrastructure.Persistence.EF.Seedings
 
         private void AddBookToAuthor(Author author, params Book[] books)
         {
-            foreach(var book in books)
+            foreach(Book book in books)
             {
                 book.Author = author;
                 author.Books.Add(book);
@@ -71,7 +71,7 @@ namespace DemoGraphQL.Infrastructure.Persistence.EF.Seedings
 
         private void AddBookToPublisher(Publisher publisher, params Book[] books)
         {
-            foreach(var book in books)
+            foreach(Book book in books)
             {
                 book.Publisher = publisher;
                 publisher.Books.Add(book);

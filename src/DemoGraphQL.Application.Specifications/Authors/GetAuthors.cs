@@ -1,7 +1,4 @@
-﻿using Ardalis.Specification;
-using DemoGraphQL.Domain;
-
-namespace DemoGraphQL.Application.Specifications.Authors
+﻿namespace DemoGraphQL.Application.Specifications.Authors
 {
     public class GetAuthors : Specification<Author>
     {

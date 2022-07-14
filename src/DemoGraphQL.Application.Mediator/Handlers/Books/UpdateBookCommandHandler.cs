@@ -1,4 +1,6 @@
-﻿namespace DemoGraphQL.Application.Mediator.Handlers.Books
+﻿using DemoGraphQL.Application.Specifications.Books;
+
+namespace DemoGraphQL.Application.Mediator.Handlers.Books
 {
     public class UpdateBookCommandHandler : IRequestHandler<UpdateBookCommand, Book>
     {
@@ -11,8 +13,12 @@
 
         public async Task<Book> Handle(UpdateBookCommand request, CancellationToken cancellationToken)
         {
-            await _bookRepository.UpdateAsync(request.Book, cancellationToken);
-            return request.Book;
+            Book? dbBook = await _bookRepository.SingleOrDefaultAsync(new GetBookById(request.Book.Id), cancellationToken);
+
+            dbBook.Title = request.Book.Title;
+
+            await _bookRepository.UpdateAsync(dbBook, cancellationToken);
+            return dbBook;
         }
     }
 }

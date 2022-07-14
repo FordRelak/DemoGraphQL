@@ -13,7 +13,7 @@ namespace DemoGraphQL.Infrastructure.Persistence.EF.Migrations
 
         public async Task ApplyMigrationIfNeed()
         {
-            var migrations = await _context.Database.GetPendingMigrationsAsync();
+            IEnumerable<string> migrations = await _context.Database.GetPendingMigrationsAsync();
             if(migrations.Any())
             {
                 await _context.Database.MigrateAsync();

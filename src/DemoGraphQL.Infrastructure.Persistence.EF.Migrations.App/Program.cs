@@ -19,11 +19,11 @@ namespace DemoGraphQL.Infrastructure.Persistence.EF.Migrations.App
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            var services = new ServiceCollection();
+            ServiceCollection services = new();
 
             services.ConfigureNpgsql(configuration.GetConnectionString("DemoGraphQL"));
 
-            var _serviceProvider = services.BuildServiceProvider();
+            ServiceProvider _serviceProvider = services.BuildServiceProvider();
 
             return _serviceProvider.GetService<DbContext>();
         }

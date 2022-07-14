@@ -15,13 +15,13 @@ namespace DemoGraphQL.WebApi
 
         public static async Task Main(string[] args)
         {
-            var builder = WebApplication.CreateBuilder(args);
+            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
             _configuration = builder.Configuration;
 
             ConfigureServices(builder.Services);
 
-            var app = builder.Build();
+            WebApplication app = builder.Build();
 
             Configure(app);
 
@@ -57,13 +57,13 @@ namespace DemoGraphQL.WebApi
 
         private static async Task SeedIfNeed(WebApplication app)
         {
-            var seeder = app.Services.GetRequiredService<Seeder>();
+            Seeder seeder = app.Services.GetRequiredService<Seeder>();
             await seeder.SeedIfNeed();
         }
 
         private static async Task ApplyMigrationIfNeed(WebApplication app)
         {
-            var migrator = app.Services.GetRequiredService<MigrationService>();
+            MigrationService migrator = app.Services.GetRequiredService<MigrationService>();
             await migrator.ApplyMigrationIfNeed();
         }
     }

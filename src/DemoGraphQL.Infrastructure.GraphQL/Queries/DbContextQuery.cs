@@ -1,7 +1,5 @@
 ﻿using DemoGraphQL.Domain;
 using DemoGraphQL.Infrastructure.Persistence.EF;
-using HotChocolate.Language;
-using HotChocolate.Resolvers;
 
 namespace DemoGraphQL.Infrastructure.GraphQL.Queries
 {
@@ -11,9 +9,10 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Queries
         [UseDbContext(typeof(GQDbContext))]
         [UseProjection]
         [UseFiltering]
-        public IQueryable<Book> GetBooksDbContext(IResolverContext context,[ScopedService] GQDbContext dbContext, CancellationToken cancellationToken)
+        public IQueryable<Book> GetBooksDbContext(
+            [ScopedService] GQDbContext dbContext,
+            CancellationToken cancellationToken)
         {
-            var a =  context.ArgumentLiteral<ObjectValueNode>("where");
             return dbContext.Books;
         }
     }
