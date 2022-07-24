@@ -13,8 +13,7 @@ namespace DemoGraphQL.Infrastructure.Persistence.PostgreSQL
                 options.UseNpgsql(connectionString, options =>
                 {
                     options.MigrationsAssembly("DemoGraphQL.Infrastructure.Persistence.EF.Migrations");
-                })
-                .LogTo(Console.WriteLine);
+                });
             }, poolSize: 32);
 
             services.AddTransient<DbContext>(s => s.GetRequiredService<IDbContextFactory<GQDbContext>>()

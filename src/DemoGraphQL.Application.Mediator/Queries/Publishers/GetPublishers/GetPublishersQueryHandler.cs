@@ -1,4 +1,4 @@
-﻿namespace DemoGraphQL.Application.Mediator.Queries.Publishers
+﻿namespace DemoGraphQL.Application.Mediator.Queries.Publishers.GetPublishers
 {
     public class GetPublishersQueryHandler : BaseQueryHandler<GetPublishersQuery, IList<Publisher>>
     {

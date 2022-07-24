@@ -38,7 +38,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoGraphQL.Infrastructure.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoGraphQL.Infrastructure.Persistence.EF.Migrations.App", "src\DemoGraphQL.Infrastructure.Persistence.EF.Migrations.App\DemoGraphQL.Infrastructure.Persistence.EF.Migrations.App.csproj", "{4E0FCC08-C720-4638-ABCF-1158BCDABB1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoGraphQL.Infrastructure.GraphQL.Mapper", "src\DemoGraphQL.Infrastructure.GraphQL.Mapper\DemoGraphQL.Infrastructure.GraphQL.Mapper.csproj", "{D8D2C2E9-97BF-4A33-8181-F806BF90ACAB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoGraphQL.Infrastructure.GraphQL.Mapper", "src\DemoGraphQL.Infrastructure.GraphQL.Mapper\DemoGraphQL.Infrastructure.GraphQL.Mapper.csproj", "{D8D2C2E9-97BF-4A33-8181-F806BF90ACAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoGraphQL.Infrastructure.GraphQL.Common", "src\DemoGraphQL.Infrastructure.GraphQL.Common\DemoGraphQL.Infrastructure.GraphQL.Common.csproj", "{F3B0CE94-70A1-488E-80F8-C37A7565B746}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +96,10 @@ Global
 		{D8D2C2E9-97BF-4A33-8181-F806BF90ACAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8D2C2E9-97BF-4A33-8181-F806BF90ACAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8D2C2E9-97BF-4A33-8181-F806BF90ACAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B0CE94-70A1-488E-80F8-C37A7565B746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B0CE94-70A1-488E-80F8-C37A7565B746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B0CE94-70A1-488E-80F8-C37A7565B746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B0CE94-70A1-488E-80F8-C37A7565B746}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +117,7 @@ Global
 		{E4A68BE1-4F28-4CE2-90F4-1E44404CD532} = {84EF1925-0F1E-4CCE-A8E6-CF39E3976A3E}
 		{4E0FCC08-C720-4638-ABCF-1158BCDABB1D} = {84EF1925-0F1E-4CCE-A8E6-CF39E3976A3E}
 		{D8D2C2E9-97BF-4A33-8181-F806BF90ACAB} = {E4BC932B-36B5-4327-937D-0FC2A50F6370}
+		{F3B0CE94-70A1-488E-80F8-C37A7565B746} = {E4BC932B-36B5-4327-937D-0FC2A50F6370}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6893B51C-17F6-4C60-AA92-D1AD815A00A3}

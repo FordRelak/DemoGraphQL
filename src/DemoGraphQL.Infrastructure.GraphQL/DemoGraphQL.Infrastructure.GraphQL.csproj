@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <Folder Include="Filters\" />
+    <Folder Include="Queries\Authors\" />
+    <Folder Include="Queries\Publishers\" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -21,6 +23,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\DemoGraphQL.Application.Mediator\DemoGraphQL.Application.Mediator.csproj" />
 	  <ProjectReference Include="..\DemoGraphQL.Application.Specifications\DemoGraphQL.Application.Specifications.csproj" />
+	  <ProjectReference Include="..\DemoGraphQL.Infrastructure.GraphQL.Common\DemoGraphQL.Infrastructure.GraphQL.Common.csproj" />
 	  <ProjectReference Include="..\DemoGraphQL.Infrastructure.Persistence.EF\DemoGraphQL.Infrastructure.Persistence.EF.csproj" />
 	</ItemGroup>
 </Project>

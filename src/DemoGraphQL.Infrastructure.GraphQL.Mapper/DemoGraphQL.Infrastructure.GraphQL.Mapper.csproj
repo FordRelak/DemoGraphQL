@@ -15,4 +15,8 @@
     <ProjectReference Include="..\DemoGraphQL.Infrastructure.GraphQL\DemoGraphQL.Infrastructure.GraphQL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Profiles\" />
+  </ItemGroup>
+
 </Project>

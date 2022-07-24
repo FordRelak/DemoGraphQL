@@ -1,8 +1,10 @@
-﻿using DemoGraphQL.Infrastructure.GraphQL.Mutations;
-using DemoGraphQL.Infrastructure.GraphQL.Mutations.Books;
+﻿using DemoGraphQL.Infrastructure.GraphQL.DataLoaders;
+using DemoGraphQL.Infrastructure.GraphQL.Mutations;
+using DemoGraphQL.Infrastructure.GraphQL.Mutations.AddAuthor;
 using DemoGraphQL.Infrastructure.GraphQL.Queries;
-using DemoGraphQL.Infrastructure.GraphQL.Subscriptions;
-using DemoGraphQL.Infrastructure.GraphQL.Subscriptions.Books;
+using DemoGraphQL.Infrastructure.GraphQL.Queries.Books.GetBookById;
+using DemoGraphQL.Infrastructure.GraphQL.Queries.Books.GetBooks;
+using DemoGraphQL.Infrastructure.GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DemoGraphQL.Infrastructure.GraphQL
@@ -16,20 +18,21 @@ namespace DemoGraphQL.Infrastructure.GraphQL
 
                 .AddQueryType<Query>()
                 .AddMutationType<Mutation>()
-                .AddSubscriptionType<Subscription>()
+                //.AddSubscriptionType<Subscription>()
 
-                .AddTypeExtension<SimpleQuery>()
-                .AddTypeExtension<DbContextQuery>()
+                .AddType<BookType>()
+                .AddTypeExtension<GetBooksQueryExtensions>()
+                .AddTypeExtension<GetBookQueryExtension>()
 
-                .AddTypeExtension<AddBookMutation>()
-                .AddTypeExtension<UpdateBookMutation>()
+                .AddType<AddAuthorMutationExtension>()
 
-                .AddTypeExtension<AddBookSubscription>()
-                .AddTypeExtension<UpdateBookSubscription>()
+                .AddDataLoader<GetBookDataLoader>()
 
                 .AddInMemorySubscriptions()
                 .AddFiltering()
-                .AddProjections();
+                .AddProjections()
+                .AddDefaultTransactionScopeHandler()
+                .AddMutationConventions(true);
 
             return services;
         }
