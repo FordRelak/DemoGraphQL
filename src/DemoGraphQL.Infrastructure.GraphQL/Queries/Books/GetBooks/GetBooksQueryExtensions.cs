@@ -8,7 +8,7 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Queries.Books.GetBooks
         protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
         {
             descriptor
-                .Field(nameof(Resolver.GetBooks).ToGqlQueryName())
+                .Field(nameof(Resolver.GetBooks).ToGqlName())
                 .Type<ListType<BookType>>()
                 .ResolveWith<Resolver>(resolver => resolver.GetBooks(default))
                 .UseDbContext<GQDbContext>()

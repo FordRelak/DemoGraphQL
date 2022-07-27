@@ -1,4 +1,5 @@
 ﻿using DemoGraphQL.Domain;
+using HotChocolate.Subscriptions;
 
 namespace DemoGraphQL.Infrastructure.GraphQL.Mutations.AddAuthor
 {
@@ -7,9 +8,9 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Mutations.AddAuthor
         protected override void Configure(IObjectTypeDescriptor<Mutation> descriptor)
         {
             descriptor
-                .Field(nameof(AddAuthorResolver.AddAuthorAsync).ToGqlQueryName())
+                .Field(nameof(AddAuthorResolver.AddAuthorAsync).ToGqlName())
                 .Argument("input", argument => argument.Type<NonNullType<AddAuthorInputType>>())
-                .ResolveWith<AddAuthorResolver>(resolver => resolver.AddAuthorAsync(default!, default!, default))
+                .ResolveWith<AddAuthorResolver>(resolver => resolver.AddAuthorAsync(default!, default!, default!, default))
                 .UseDbContext<GQDbContext>()
                 .Description("Добавление автора");
         }
@@ -19,6 +20,7 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Mutations.AddAuthor
             public async Task<AddAuthorPayload> AddAuthorAsync(
                 AddAuthorInput input,
                 [ScopedService] GQDbContext context,
+                [Service] ITopicEventSender topicEventSender,
                 CancellationToken cancellationToken)
             {
                 Author author = new()
@@ -28,6 +30,8 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Mutations.AddAuthor
 
                 await context.AddAsync(author, cancellationToken);
                 await context.SaveChangesAsync(cancellationToken);
+
+                await topicEventSender.SendAsync("AuthorAdded", author, cancellationToken);
 
                 return new(author.Id, author.Name);
             }

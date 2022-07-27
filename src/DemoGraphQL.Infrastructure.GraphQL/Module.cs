@@ -4,6 +4,8 @@ using DemoGraphQL.Infrastructure.GraphQL.Mutations.AddAuthor;
 using DemoGraphQL.Infrastructure.GraphQL.Queries;
 using DemoGraphQL.Infrastructure.GraphQL.Queries.Books.GetBookById;
 using DemoGraphQL.Infrastructure.GraphQL.Queries.Books.GetBooks;
+using DemoGraphQL.Infrastructure.GraphQL.Subscriptions;
+using DemoGraphQL.Infrastructure.GraphQL.Subscriptions.AddAuthor;
 using DemoGraphQL.Infrastructure.GraphQL.Types;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,14 +19,16 @@ namespace DemoGraphQL.Infrastructure.GraphQL
                 .AddGraphQLServer()
 
                 .AddQueryType<Query>()
-                .AddMutationType<Mutation>()
-                //.AddSubscriptionType<Subscription>()
 
                 .AddType<BookType>()
                 .AddTypeExtension<GetBooksQueryExtensions>()
                 .AddTypeExtension<GetBookQueryExtension>()
 
+                .AddMutationType<Mutation>()
                 .AddType<AddAuthorMutationExtension>()
+
+                .AddSubscriptionType<Subscription>()
+                .AddTypeExtension<AddAuthorSubscriptionType>()
 
                 .AddDataLoader<GetBookDataLoader>()
 

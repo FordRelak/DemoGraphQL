@@ -2,7 +2,7 @@
 {
     public static class StringExtension
     {
-        public static string ToGqlQueryName(this string name)
+        public static string ToGqlName(this string name)
         {
             string newName = name.TrimStart("Get")
                               .TrimEnd("Async");

@@ -9,7 +9,7 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Queries.Books.GetBookById
         protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
         {
             descriptor
-                .Field(nameof(Resolver.GetBookAsync).ToGqlQueryName())
+                .Field(nameof(Resolver.GetBookAsync).ToGqlName())
                 .Type<BookType>()
                 .Argument("id", a => a.Type<IdType>())
                 .ResolveWith<Resolver>(resolver => resolver.GetBookAsync(default!, default, default))
