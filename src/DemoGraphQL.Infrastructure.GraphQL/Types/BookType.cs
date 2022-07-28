@@ -11,17 +11,36 @@ namespace DemoGraphQL.Infrastructure.GraphQL.Types
 
             descriptor
                 .Field(book => book.Publisher)
-                .ResolveWith<PublisherResolver>(resolver => resolver.GetPublishers(default!))
+                .ResolveWith<PublisherResolver>(resolver => resolver.GetPublisher(default!, default!))
                 .UseDbContext<GQDbContext>()
                 .UseProjection()
                 .Description("Публикатор");
+
+            descriptor
+                .Field(book => book.Author)
+                .ResolveWith<AuthorResolver>(resolver => resolver.GetAuthor(default!, default!))
+                .UseDbContext<GQDbContext>()
+                .UseProjection()
+                .Description("Автор");
         }
 
         private class PublisherResolver
         {
-            public IQueryable<Publisher> GetPublishers([ScopedService] GQDbContext context)
+            public IQueryable<Publisher> GetPublisher(
+                [Parent] Book book,
+                [ScopedService] GQDbContext context)
             {
-                return context.Publishers;
+                return context.Publishers.Where(publisher => publisher.Id == book.PublisherId);
+            }
+        }
+
+        private class AuthorResolver
+        {
+            public IQueryable<Author> GetAuthor(
+                [Parent] Book book,
+                [ScopedService] GQDbContext context)
+            {
+                return context.Authors.Where(author => author.Id == book.AuthorId);
             }
         }
     }

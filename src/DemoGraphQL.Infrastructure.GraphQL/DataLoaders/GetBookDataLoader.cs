@@ -19,9 +19,6 @@ namespace DemoGraphQL.Infrastructure.GraphQL.DataLoaders
             IReadOnlyList<Guid> keys,
             CancellationToken cancellationToken)
         {
-            //var books = await _mediator.Send(new GetBooksByIdsQuery(keys.ToArray()), cancellationToken);
-            //return books.ToDictionary(book => book.Id, x => x);
-
             await using GQDbContext context = await _dbContextFactory.CreateDbContextAsync(cancellationToken);
 
             return await context.Books
